@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             btnCreate = new Button();
-            btnUpdate = new Button();
             btnAdminSearch = new Button();
-            btnDelete = new Button();
             btnSave = new Button();
             btnOpenRecipe = new Button();
             labelAdminWelcome = new Label();
@@ -49,16 +47,6 @@
             btnCreate.Text = "Skapa";
             btnCreate.UseVisualStyleBackColor = true;
             // 
-            // btnUpdate
-            // 
-            btnUpdate.Location = new Point(161, 250);
-            btnUpdate.Margin = new Padding(4);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(139, 58);
-            btnUpdate.TabIndex = 1;
-            btnUpdate.Text = "Uppdatera";
-            btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // btnAdminSearch
             // 
             btnAdminSearch.Location = new Point(699, 431);
@@ -68,17 +56,6 @@
             btnAdminSearch.TabIndex = 2;
             btnAdminSearch.Text = "Sök";
             btnAdminSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(161, 315);
-            btnDelete.Margin = new Padding(4);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(139, 58);
-            btnDelete.TabIndex = 3;
-            btnDelete.Text = "Ta Bort";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnSave
             // 
@@ -99,6 +76,7 @@
             btnOpenRecipe.TabIndex = 5;
             btnOpenRecipe.Text = "Öppna recept";
             btnOpenRecipe.UseVisualStyleBackColor = true;
+            btnOpenRecipe.Click += btnOpenRecipe_Click;
             // 
             // labelAdminWelcome
             // 
@@ -138,9 +116,7 @@
             Controls.Add(labelAdminWelcome);
             Controls.Add(btnOpenRecipe);
             Controls.Add(btnSave);
-            Controls.Add(btnDelete);
             Controls.Add(btnAdminSearch);
-            Controls.Add(btnUpdate);
             Controls.Add(btnCreate);
             Margin = new Padding(4);
             Name = "FrmAdminScreen";
@@ -152,9 +128,7 @@
         #endregion
 
         private Button btnCreate;
-        private Button btnUpdate;
         private Button btnAdminSearch;
-        private Button btnDelete;
         private Button btnSave;
         private Button btnOpenRecipe;
         private Label labelAdminWelcome;
