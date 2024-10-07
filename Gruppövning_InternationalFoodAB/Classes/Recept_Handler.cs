@@ -1,4 +1,6 @@
-﻿namespace Gruppövning_InternationalFoodAB.Classes
+﻿using System.Text.Json;
+
+namespace Gruppövning_InternationalFoodAB.Classes
 {
     public class Recept_Handler
     {
@@ -24,6 +26,7 @@
             {
                 sw.WriteLine(jsonRecept);
             }
+            MessageBox.Show("Recept har lagts till");
         }
         //listar igenom alla
         public void Read()
@@ -35,7 +38,7 @@
                 while ((line = sr.ReadLine()) != null)
                 {
                     Recept recept = JsonSerializer.Deserialize<Recept>(line);
-                    allRecepts.Add(recept);
+                    AllRecepts.Add(recept);
                 }
             }
             //return receptList;
@@ -52,20 +55,12 @@
                 receptToUpdate.Description = updatedRecept.Description;
                 receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
 
-                using (StreamWriter sw = new StreamWriter(filePath, false)) 
-                {
-                    foreach (var recept in receptList)
-                    {
-                        string jsonRecept = JsonSerializer.Serialize(recept);
-                        sw.WriteLine(jsonRecept);
-                    }
-                }
-
-                Console.WriteLine("Receptet har uppdaterats.");
+                WriterToFile();
+                MessageBox.Show("Receptet har uppdaterats.");
             }
             else
             {
-                Console.WriteLine("Kunde inte hitta receptet för att uppdatera.");
+                MessageBox.Show("Kunde inte hitta receptet för att uppdatera.");
             }
         }
 
@@ -85,17 +80,21 @@
         {
             //List<Recept> receptList = Read();
             AllRecepts.RemoveAll(recept => recept.Id == receptId);
+            WriterToFile();
 
+            MessageBox.Show("Receptet har tagits bort.");
+        }
+
+        public void WriterToFile()
+        {
             using (StreamWriter sw = new StreamWriter(filePath, false))
             {
-                foreach (var recept in receptList)
+                foreach (var recept in AllRecepts)
                 {
                     string jsonRecept = JsonSerializer.Serialize(recept);
                     sw.WriteLine(jsonRecept);
                 }
             }
-
-            Console.WriteLine("Receptet har tagits bort.");
         }
     }
 }
