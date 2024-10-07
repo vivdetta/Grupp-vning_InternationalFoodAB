@@ -5,6 +5,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
     public class Recept_Handler
     {
         public List<Recept> AllRecepts { get; set; }
+
         private string filePath = "recepts.json"; 
 
 

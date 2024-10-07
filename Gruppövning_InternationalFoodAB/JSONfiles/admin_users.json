@@ -1,0 +1,42 @@
+[
+  {
+    "UserName": "john_doe",
+    "Password": "password123"
+  },
+  {
+    "UserName": "jane_smith",
+    "Password": "securePass456"
+  },
+  {
+    "UserName": "michael_brown",
+    "Password": "abc123XYZ"
+  },
+  {
+    "UserName": "emily_white",
+    "Password": "emilyPass789"
+  },
+  {
+    "UserName": "charles_black",
+    "Password": "black1234"
+  },
+  {
+    "UserName": "sarah_green",
+    "Password": "greenPass999"
+  },
+  {
+    "UserName": "george_clark",
+    "Password": "clark2020"
+  },
+  {
+    "UserName": "anna_kim",
+    "Password": "annaKim123!"
+  },
+  {
+    "UserName": "daniel_lee",
+    "Password": "danielLeePass"
+  },
+  {
+    "UserName": "linda_baker",
+    "Password": "bakerSecure456"
+  }
+]
