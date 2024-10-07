@@ -11,7 +11,7 @@
             AllRecepts = allRecepts;
 
         }
-
+        //Skapar
         public void Create(Recept recept)
         {
             if (recept.Id == Guid.Empty)
@@ -25,26 +25,26 @@
                 sw.WriteLine(jsonRecept);
             }
         }
-
-        public List<Recept> Read()
+        //listar igenom alla
+        public void Read()
         {
-            List<Recept> receptList = new List<Recept>();
+            //List<Recept> receptList = new List<Recept>();
             using (StreamReader sr = new StreamReader(filePath)) 
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Recept recept = JsonSerializer.Deserialize<Recept>(line); 
-                    receptList.Add(recept);
+                    Recept recept = JsonSerializer.Deserialize<Recept>(line);
+                    allRecepts.Add(recept);
                 }
             }
-            return receptList;
+            //return receptList;
         }
-
+        //Uppdaterar
         public void Update(Guid receptId, Recept updatedRecept)
         {
-            List<Recept> receptList = Read();
-            var receptToUpdate = receptList.FirstOrDefault(recept => recept.Id == receptId);
+            //List<Recept> receptList = Read();
+            var receptToUpdate = AllRecepts.FirstOrDefault(recept => recept.Id == receptId);
 
             if (receptToUpdate != null)
             {
@@ -69,7 +69,7 @@
             }
         }
 
-
+        //söker
         public List<Recept> ShowSearchResults(string keyWord)
         {
             // We take in a key word from the user and see if any recepts contain it. 
@@ -80,11 +80,11 @@
                                             .ToList();
             return searchResults;
         }
-
+        //Delete
         public void Delete(Guid receptId)
         {
-            List<Recept> receptList = Read();
-            receptList.RemoveAll(recept => recept.Id == receptId);
+            //List<Recept> receptList = Read();
+            AllRecepts.RemoveAll(recept => recept.Id == receptId);
 
             using (StreamWriter sw = new StreamWriter(filePath, false))
             {
