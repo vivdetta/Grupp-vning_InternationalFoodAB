@@ -8,11 +8,12 @@ namespace Gruppövning_InternationalFoodAB.Classes
         private string filePath = "recepts.json"; 
 
 
-        public Recept_Handler(List<Recept> allRecepts, string filePath)
-        {
-            AllRecepts = allRecepts;
+        //public Recept_Handler(List<Recept> allRecepts)
+        //{
+        //    AllRecepts = allRecepts;
 
-        }
+        //}
+
         //Skapar
         public void Create(Recept recept)
         {
