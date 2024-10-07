@@ -1,46 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Gruppövning_InternationalFoodAB.Classes
+﻿namespace Gruppövning_InternationalFoodAB.Classes
 {
     public class Recept_Handler
     {
-        public Guid Id { get; set; }
         public List<Recept> AllRecepts { get; set; }
-        private string path;
+        private string filePath = "recepts.json"; 
+
 
         public Recept_Handler(List<Recept> allRecepts, string filePath)
         {
             AllRecepts = allRecepts;
-            path = filePath;
+
         }
 
         public void Create(Recept recept)
         {
             if (recept.Id == Guid.Empty)
             {
+                recept.Id = Guid.NewGuid();
             }
 
-            string jsonRecepts = JsonSerializer.Serialize(recept);
-
-            try
+            string jsonRecept = JsonSerializer.Serialize(recept); 
+            using (StreamWriter sw = new StreamWriter(filePath, true)) 
             {
-                using (StreamWriter sw = new StreamWriter(path, true))
-                {
-                    sw.WriteLine(jsonRecepts);
-                }
-                //Visa medelande nånstans
-                //Console.WriteLine("Receptet har sparats.");
-            }
-            catch (Exception ex)
-            {
-                //Visa medelande nånstans
-                //Console.WriteLine($"Ett fel inträffade vid sparning av recept: {ex.Message}");
+                sw.WriteLine(jsonRecept);
             }
         }
-    }
 
+        public List<Recept> Read()
+        {
+            List<Recept> receptList = new List<Recept>();
+            using (StreamReader sr = new StreamReader(filePath)) 
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Recept recept = JsonSerializer.Deserialize<Recept>(line); 
+                    receptList.Add(recept);
+                }
+            }
+            return receptList;
+        }
+
+        public void Update(Guid receptId, Recept updatedRecept)
+        {
+            List<Recept> receptList = Read();
+            var receptToUpdate = receptList.FirstOrDefault(recept => recept.Id == receptId);
+
+            if (receptToUpdate != null)
+            {
+                receptToUpdate.Name = updatedRecept.Name;
+                receptToUpdate.Description = updatedRecept.Description;
+                receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
+
+                using (StreamWriter sw = new StreamWriter(filePath, false)) 
+                {
+                    foreach (var recept in receptList)
+                    {
+                        string jsonRecept = JsonSerializer.Serialize(recept);
+                        sw.WriteLine(jsonRecept);
+                    }
+                }
+
+                Console.WriteLine("Receptet har uppdaterats.");
+            }
+            else
+            {
+                Console.WriteLine("Kunde inte hitta receptet för att uppdatera.");
+            }
+        }
+
+        public void Delete(Guid receptId)
+        {
+            List<Recept> receptList = Read();
+            receptList.RemoveAll(recept => recept.Id == receptId);
+
+            using (StreamWriter sw = new StreamWriter(filePath, false))
+            {
+                foreach (var recept in receptList)
+                {
+                    string jsonRecept = JsonSerializer.Serialize(recept);
+                    sw.WriteLine(jsonRecept);
+                }
+            }
+
+            Console.WriteLine("Receptet har tagits bort.");
+        }
+    }
 }
