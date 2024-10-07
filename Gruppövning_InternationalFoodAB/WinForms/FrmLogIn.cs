@@ -1,8 +1,8 @@
 namespace Gruppövning_InternationalFoodAB
 {
-    public partial class FrmLogIn : Form
+    public partial class FrmLogin : Form
     {
-        public FrmLogIn()
+        public FrmLogin()
         {
             InitializeComponent();
         }
