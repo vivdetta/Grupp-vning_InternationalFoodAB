@@ -23,7 +23,8 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 recept.Id = Guid.NewGuid();
             }
 
-            string jsonRecept = JsonSerializer.Serialize(recept); 
+            string jsonRecept = JsonSerializer.Serialize(recept);
+            string filePath = FileDirectory.GetJsonReceptPath();
             using (StreamWriter sw = new StreamWriter(filePath, true)) 
             {
                 sw.WriteLine(jsonRecept);
@@ -34,6 +35,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
         public void Read()
         {
             //List<Recept> receptList = new List<Recept>();
+            string filepath = FileDirectory.GetJsonReceptPath();
             using (StreamReader sr = new StreamReader(filePath)) 
             {
                 string line;
@@ -89,6 +91,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
         public void WriterToFile()
         {
+            string filePath = FileDirectory.GetJsonReceptPath();
             using (StreamWriter sw = new StreamWriter(filePath, false))
             {
                 foreach (var recept in AllRecepts)
