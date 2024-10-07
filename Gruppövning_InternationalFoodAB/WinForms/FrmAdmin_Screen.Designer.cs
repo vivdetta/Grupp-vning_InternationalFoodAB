@@ -41,54 +41,61 @@
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(129, 148);
+            btnCreate.Location = new Point(161, 185);
+            btnCreate.Margin = new Padding(4);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(111, 46);
+            btnCreate.Size = new Size(139, 58);
             btnCreate.TabIndex = 0;
             btnCreate.Text = "Skapa";
             btnCreate.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(129, 200);
+            btnUpdate.Location = new Point(161, 250);
+            btnUpdate.Margin = new Padding(4);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(111, 46);
+            btnUpdate.Size = new Size(139, 58);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Uppdatera";
             btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnAdminSearch
             // 
-            btnAdminSearch.Location = new Point(559, 345);
+            btnAdminSearch.Location = new Point(699, 431);
+            btnAdminSearch.Margin = new Padding(4);
             btnAdminSearch.Name = "btnAdminSearch";
-            btnAdminSearch.Size = new Size(111, 46);
+            btnAdminSearch.Size = new Size(139, 58);
             btnAdminSearch.TabIndex = 2;
             btnAdminSearch.Text = "Sök";
             btnAdminSearch.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(129, 252);
+            btnDelete.Location = new Point(161, 315);
+            btnDelete.Margin = new Padding(4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(111, 46);
+            btnDelete.Size = new Size(139, 58);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Ta Bort";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(129, 12);
+            btnSave.Location = new Point(161, 15);
+            btnSave.Margin = new Padding(4);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(111, 46);
+            btnSave.Size = new Size(139, 58);
             btnSave.TabIndex = 4;
             btnSave.Text = "Spara";
             btnSave.UseVisualStyleBackColor = true;
             // 
             // btnOpenRecipe
             // 
-            btnOpenRecipe.Location = new Point(12, 12);
+            btnOpenRecipe.Location = new Point(15, 15);
+            btnOpenRecipe.Margin = new Padding(4);
             btnOpenRecipe.Name = "btnOpenRecipe";
-            btnOpenRecipe.Size = new Size(111, 46);
+            btnOpenRecipe.Size = new Size(139, 58);
             btnOpenRecipe.TabIndex = 5;
             btnOpenRecipe.Text = "Öppna recept";
             btnOpenRecipe.UseVisualStyleBackColor = true;
@@ -96,31 +103,36 @@
             // labelAdminWelcome
             // 
             labelAdminWelcome.AutoSize = true;
-            labelAdminWelcome.Location = new Point(198, 71);
+            labelAdminWelcome.Location = new Point(248, 89);
+            labelAdminWelcome.Margin = new Padding(4, 0, 4, 0);
             labelAdminWelcome.Name = "labelAdminWelcome";
-            labelAdminWelcome.Size = new Size(0, 20);
+            labelAdminWelcome.Size = new Size(0, 25);
             labelAdminWelcome.TabIndex = 6;
             // 
             // lbxAdminView
             // 
             lbxAdminView.FormattingEnabled = true;
-            lbxAdminView.Location = new Point(246, 12);
+            lbxAdminView.ItemHeight = 25;
+            lbxAdminView.Location = new Point(308, 15);
+            lbxAdminView.Margin = new Padding(4);
             lbxAdminView.Name = "lbxAdminView";
-            lbxAdminView.Size = new Size(424, 284);
+            lbxAdminView.Size = new Size(529, 354);
             lbxAdminView.TabIndex = 7;
+            lbxAdminView.SelectedIndexChanged += lbxAdminView_SelectedIndexChanged;
             // 
             // txtSearchItem
             // 
-            txtSearchItem.Location = new Point(507, 312);
+            txtSearchItem.Location = new Point(634, 390);
+            txtSearchItem.Margin = new Padding(4);
             txtSearchItem.Name = "txtSearchItem";
-            txtSearchItem.Size = new Size(163, 27);
+            txtSearchItem.Size = new Size(203, 31);
             txtSearchItem.TabIndex = 8;
             // 
             // FrmAdminScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(txtSearchItem);
             Controls.Add(lbxAdminView);
             Controls.Add(labelAdminWelcome);
@@ -130,6 +142,7 @@
             Controls.Add(btnAdminSearch);
             Controls.Add(btnUpdate);
             Controls.Add(btnCreate);
+            Margin = new Padding(4);
             Name = "FrmAdminScreen";
             Text = "Admin";
             ResumeLayout(false);
