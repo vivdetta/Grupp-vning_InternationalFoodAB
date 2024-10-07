@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gruppövning_InternationalFoodAB.WinForms
 {
-    public partial class FrmAdminScreen : Form
+    public partial class FormAdmin_Login : Form
     {
-        public FrmAdminScreen()
+        public FormAdmin_Login()
         {
             InitializeComponent();
         }
