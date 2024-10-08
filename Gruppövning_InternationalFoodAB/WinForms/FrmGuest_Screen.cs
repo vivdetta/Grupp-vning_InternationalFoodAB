@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gruppövning_InternationalFoodAB.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,33 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 {
     public partial class FrmGuest_Screen : Form
     {
+        Recept_Handler recept_Handler = new Recept_Handler();
+        private Recept selectedRecepie;
         public FrmGuest_Screen()
         {
             InitializeComponent();
+        }
+        private void btnGetList_Click(object sender, EventArgs e)
+        {
+            List<Recept> ReceptList = recept_Handler.Read();
+            lbxGuestResults.Items.Clear();
+
+            foreach (var recept in ReceptList)
+            {
+                lbxGuestResults.Items.Add(recept);
+            }
+        }
+        private void lbxGuestResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Recept selectedRecept = lbxGuestResults.SelectedItem as Recept;
+
+            if (selectedRecept != null)
+                selectedRecepie = selectedRecept;
+        }
+        private void btnGuestOpenRecipe_Click(object sender, EventArgs e)
+        {
+            //måste skapas upp
+            FormGuest_SelectedRecept formSelectedRecept = new FormGuest_SelectedRecept(selectedRecepie);
         }
     }
 }
