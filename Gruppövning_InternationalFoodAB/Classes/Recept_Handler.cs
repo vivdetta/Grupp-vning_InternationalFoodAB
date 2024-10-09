@@ -6,7 +6,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
     {
         public List<Recept> AllRecepts { get; set; }
 
-        private string filePath = "recepts.json"; 
+        private string filePath = "recepts.json";
 
 
         //public Recept_Handler(List<Recept> allRecepts)
@@ -25,27 +25,29 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
             string jsonRecept = JsonSerializer.Serialize(recept);
             string filePath = FileDirectory.GetJsonReceptPath();
-            using (StreamWriter sw = new StreamWriter(filePath, true)) 
+            using (StreamWriter sw = new StreamWriter(filePath, true))
             {
                 sw.WriteLine(jsonRecept);
             }
             MessageBox.Show("Recept har lagts till");
         }
         //listar igenom alla
-        public void Read()
+        public List<Recept> Read()
         {
-            //List<Recept> receptList = new List<Recept>();
+            List<Recept> receptList = new List<Recept>();
             string filepath = FileDirectory.GetJsonReceptPath();
-            using (StreamReader sr = new StreamReader(filePath)) 
+
+            using (StreamReader sr = new StreamReader(filepath))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     Recept recept = JsonSerializer.Deserialize<Recept>(line);
+                    receptList.Add(recept);
                     AllRecepts.Add(recept);
                 }
             }
-            //return receptList;
+            return receptList;
         }
         //Uppdaterar
         public void Update(Guid receptId, Recept updatedRecept)
@@ -73,7 +75,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
         {
             // We take in a key word from the user and see if any recepts contain it. 
             // We then return a list to be displayed. 
-            var searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord) || 
+            var searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord) ||
                                             recept.Description.Contains(keyWord) ||
                                             recept.TypeOfRecept.Contains(keyWord))
                                             .ToList();
