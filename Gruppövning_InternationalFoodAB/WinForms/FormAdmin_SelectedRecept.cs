@@ -14,7 +14,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 {
     public partial class FormAdmin_SelectedRecept : Form
     {
-        Recept_Handler recept_Handler = new Recept_Handler();
+        Recept_Handler recept_Handler;
         Recept recept;
 
         public FormAdmin_SelectedRecept(Recept recept)

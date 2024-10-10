@@ -24,5 +24,13 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
             return jsonReceptFilePath;
         }
+        public static string GetErrorPath()
+        {
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string solutionFolder = Path.Combine(basePath, @"..\..\..\Errorlog");
+            string errorFilePath = Path.Combine(solutionFolder, "errorLog.txt");
+
+            return errorFilePath;
+        }
     }
 }
