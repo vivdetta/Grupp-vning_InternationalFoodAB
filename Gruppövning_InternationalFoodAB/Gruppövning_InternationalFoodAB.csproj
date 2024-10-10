@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Errorlog\" />
     <Folder Include="Resourses\" />
   </ItemGroup>
 
