@@ -34,9 +34,9 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             }
             else
             {
-                adminTry.UserName = txtUserName.Text;
-                adminTry.Password = txtPassword.Text;
-                bool isValidAdmin = LoginAuthenticator.CheckForAdmin(adminTry);
+                string username = txtUserName.Text;
+                string password = txtPassword.Text;
+                bool isValidAdmin = LoginAuthenticator.CheckForAdmin(username, password);
                 if (isValidAdmin)
                 {
                     FrmAdminScreen adminScreen = new FrmAdminScreen();
