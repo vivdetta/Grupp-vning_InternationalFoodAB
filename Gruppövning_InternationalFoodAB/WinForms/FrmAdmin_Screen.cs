@@ -32,5 +32,16 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         {
             FormAdmin_SelectedRecept formSelectedRecept = new FormAdmin_SelectedRecept(selectedRecepie);
         }
+
+        private void btnGetAllRecipes_Click(object sender, EventArgs e)
+        {
+            List<Recept> ReceptList = recept_Handler.Read();
+            lbxAdminView.Items.Clear();
+
+            foreach (var recept in ReceptList)
+            {
+                lbxAdminView.Items.Add(recept);
+            }
+        }
     }
 }
