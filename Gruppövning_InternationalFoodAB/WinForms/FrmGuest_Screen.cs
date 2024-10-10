@@ -1,13 +1,4 @@
 ﻿using Gruppövning_InternationalFoodAB.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Gruppövning_InternationalFoodAB.WinForms
 {
@@ -21,6 +12,20 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             InitializeComponent();
         }
 
+        //Söka recept 
+        private void btnGuestSearch_Click(object sender, EventArgs e)
+        {
+            var searchResults = recept_Handler.ShowSearchResults(txtGuestSearch.Text, chkSearchName.Checked, chkSearchType.Checked);
+
+            lbxGuestResults.Items.Clear();
+
+            foreach (var recept in searchResults)
+            {
+                lbxGuestResults.Items.Add(recept);
+            }   
+        }
+        
+        //Skriva ut alla recept
         private void btnGetList_Click(object sender, EventArgs e)
         {
             List<Recept> ReceptList = recept_Handler.Read();
@@ -32,6 +37,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             }
         }
 
+        //Valt recept
         private void lbxGuestResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             Recept selectedRecept = lbxGuestResults.SelectedItem as Recept;
@@ -40,14 +46,11 @@ namespace Gruppövning_InternationalFoodAB.WinForms
                 selectedRecepie = selectedRecept;
         }
 
+        //Öppna recept
         private void btnGuestOpenRecipe_Click(object sender, EventArgs e)
         {
-
-
             //Öppnar nya formuläret där valt recept visas för användaren
             FrmGuest_ShowRecept formShowRecept = new FrmGuest_ShowRecept(selectedRecepie);
-
-
         }
     }
 }
