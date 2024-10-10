@@ -13,7 +13,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 {
     public partial class FrmGuest_Screen : Form
     {
-        Recept_Handler recept_Handler = new Recept_Handler();
+        Recept_Handler recept_Handler;
 
         private Recept selectedRecepie;
         public FrmGuest_Screen()

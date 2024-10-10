@@ -14,7 +14,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 {
     public partial class FrmAdminScreen : Form
     {
-        Recept_Handler recept_Handler = new Recept_Handler();
+        Recept_Handler recept_Handler;
         private Recept selectedRecepie;
         public FrmAdminScreen()
         {
@@ -41,7 +41,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 
             foreach (var recept in ReceptList)
             {
-                lbxAdminView.Items.Add(recept);
+                lbxAdminView.Items.Add(recept.Name);
             }
         }
 
@@ -53,9 +53,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
                 Description = txtDescription.Text,
                 TypeOfRecept = cbxCategory.Text
             };
-
             recept_Handler.Create(recept);
-
             txtTitle.Text = "";
             txtDescription.Text = "";
         }

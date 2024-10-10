@@ -6,7 +6,10 @@ namespace Gruppövning_InternationalFoodAB.Classes
     {
         public List<Recept> AllRecepts { get; set; }
 
-        private readonly string logFilePath = "Errorlog/errorLog.txt";
+        public Recept_Handler(List<Recept> allRecepts)
+        {
+            AllRecepts = allRecepts;
+        }
 
         //Skapar
         public void Create(Recept recept)
@@ -18,14 +21,32 @@ namespace Gruppövning_InternationalFoodAB.Classes
                     recept.Id = Guid.NewGuid();
                 }
 
-                string jsonRecept = JsonSerializer.Serialize(recept);
                 string filePath = FileDirectory.GetJsonReceptPath();
+                List<Recept> receptList = new List<Recept>();
 
-                using (StreamWriter sw = new StreamWriter(filePath, true))
+                if (File.Exists(filePath))
                 {
-                    sw.WriteLine(jsonRecept);
+                    string existingJson = File.ReadAllText(filePath);
+                    if (!string.IsNullOrWhiteSpace(existingJson))
+                    {
+                        try
+                        {
+                            receptList = JsonSerializer.Deserialize<List<Recept>>(existingJson) ?? new List<Recept>();
+                        }
+                        catch (JsonException jsonEx)
+                        {
+                            MessageBox.Show($"JSON-fel: {jsonEx.Message}");
+                            receptList = new List<Recept>(); 
+                        }
+                    }
                 }
 
+                receptList.Add(recept);
+                AllRecepts.Add(recept);
+
+                string jsonReceptList = JsonSerializer.Serialize(receptList, new JsonSerializerOptions { WriteIndented = true });
+
+                File.WriteAllText(filePath, jsonReceptList);
                 MessageBox.Show("Recept har lagts till");
             }
             catch (Exception ex)
@@ -38,44 +59,30 @@ namespace Gruppövning_InternationalFoodAB.Classes
         //listar igenom alla
         public List<Recept> Read()
         {
-            List<Recept> receptList = new List<Recept>();
-
             try
             {
-                string filepath = FileDirectory.GetJsonReceptPath();
-
-                using (StreamReader sr = new StreamReader(filepath))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        Recept recept = JsonSerializer.Deserialize<Recept>(line);
-                        if (recept != null)
-                        {
-                            receptList.Add(recept);
-                            AllRecepts.Add(recept);
-                        }
-                    }
-                }
+                return AllRecepts;
             }
             catch (FileNotFoundException ex)
             {
                 LogError(ex);
                 MessageBox.Show("Receptfilen kunde inte hittas.");
+                return new List<Recept>(); // Returnera tom lista om filen inte finns
             }
             catch (JsonException ex)
             {
                 LogError(ex);
                 MessageBox.Show("Ett fel inträffade vid tolkning av receptdata.");
+                return new List<Recept>(); // Returnera tom lista vid deserialiseringsfel
             }
             catch (Exception ex)
             {
                 LogError(ex);
                 MessageBox.Show("Ett oväntat fel inträffade när recepten skulle hämtas.");
+                return new List<Recept>(); // Returnera tom lista för alla andra typer av fel
             }
-
-            return receptList;
         }
+
 
         //Uppdaterar
         public void Update(Guid receptId, Recept updatedRecept)
@@ -139,6 +146,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
         }
         private void LogError(Exception ex)
         {
+            string logFilePath = FileDirectory.GetErrorPath();
             using (StreamWriter sw = new StreamWriter(logFilePath, true))
             {
                 sw.WriteLine($"{DateTime.Now}: Ett fel inträffade - {ex.Message}");
