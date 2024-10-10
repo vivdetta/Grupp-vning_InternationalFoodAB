@@ -14,6 +14,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
     public partial class FrmGuest_Screen : Form
     {
         Recept_Handler recept_Handler = new Recept_Handler();
+
         private Recept selectedRecepie;
         public FrmGuest_Screen()
         {
@@ -39,7 +40,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         private void btnGuestOpenRecipe_Click(object sender, EventArgs e)
         {
             //måste skapas upp
-            FormGuest_SelectedRecept formSelectedRecept = new FormGuest_SelectedRecept(selectedRecepie);
+            // FormGuest_SelectedRecept formSelectedRecept = new FormGuest_SelectedRecept(selectedRecepie);
         }
     }
 }
