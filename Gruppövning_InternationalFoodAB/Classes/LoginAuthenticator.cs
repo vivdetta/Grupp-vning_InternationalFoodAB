@@ -13,7 +13,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
     public static class LoginAuthenticator
     {
-        public static bool CheckForAdmin(Admin adminTrying)
+        public static bool CheckForAdmin(string username, string password)
         {
             string jsonAdminUserFilePath = FileDirectory.GetJsonAdminFilePath();
             var json = File.ReadAllText(jsonAdminUserFilePath);
@@ -26,8 +26,8 @@ namespace Gruppövning_InternationalFoodAB.Classes
             }
 
             return adminInfo
-                .Any(admin => admin.UserName == adminTrying.UserName // Ensure property name matches
-                && admin.Password == adminTrying.Password);
+                .Any(admin => admin.UserName == username
+                && admin.Password == password);
         }
     }
 }
