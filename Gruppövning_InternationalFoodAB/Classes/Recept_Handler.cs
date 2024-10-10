@@ -104,8 +104,8 @@ namespace Gruppövning_InternationalFoodAB.Classes
             // We take in a key word from the user and see if any recepts contain it. 
             // We then return a list to be displayed. 
 
-            AllRecepts = Read(); //Läsa in recept från filen
-
+            //Läsa in recept från filen  för att läsa in våra recept till listan AllRecepts
+            var temp = Read(); 
             var searchResults = new List<Recept>();
 
             if (name)
