@@ -5,8 +5,12 @@
         public Guid Id { get; set; } // Lägg till Guid för unika recept
         public string Name { get; set; }
         public string Description { get; set; }
-
         public string TypeOfRecept {  get; set; }
+
+        //public Recept (string typeOfRecept)
+        //{
+        //    TypeOfRecept = typeOfRecept;
+        //}
 
         //public Recept(string name, string description, string typeOfRecept, Guid id)
         //{

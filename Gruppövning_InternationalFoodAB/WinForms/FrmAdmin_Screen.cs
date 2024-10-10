@@ -19,6 +19,17 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         public FrmAdminScreen()
         {
             InitializeComponent();
+
+            List<Recept> typeOfRecipe = new List<Recept>();
+
+            foreach (var recept in typeOfRecipe)
+            {
+                cbxCategory.Items.Add(recept.TypeOfRecept);
+            }
+
+            //cbxCategory.Items.AddRange(typeOfRecipe.Select(recept => recept.TypeOfRecept).ToArray());
+            //Måste kopplas till txtNewCategory
+            //Måste kopplas ihop med btnNewCategory
         }
 
         private void lbxAdminView_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +69,13 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 
             txtTitle.Text = "";
             txtDescription.Text = "";
+        }
+
+        private void btnNewCategory_Click(object sender, EventArgs e)
+        {
+            string newCategory = txtNewCategory.Text;
+            cbxCategory.Items.Add(newCategory);
+            txtNewCategory.Clear();
         }
     }
 }

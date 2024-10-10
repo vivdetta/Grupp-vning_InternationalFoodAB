@@ -43,11 +43,15 @@
             lblCategory = new Label();
             btnGetAllRecipes = new Button();
             lblDescription = new Label();
+            txtNewCategory = new TextBox();
+            label1 = new Label();
+            lblNewCategory = new Label();
+            btnNewCategory = new Button();
             SuspendLayout();
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(175, 332);
+            btnCreate.Location = new Point(173, 397);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(111, 46);
             btnCreate.TabIndex = 0;
@@ -95,15 +99,15 @@
             // 
             txtTitle.Location = new Point(35, 71);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(163, 27);
+            txtTitle.Size = new Size(190, 27);
             txtTitle.TabIndex = 8;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(37, 192);
+            txtDescription.Location = new Point(35, 257);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(249, 134);
+            txtDescription.Size = new Size(290, 134);
             txtDescription.TabIndex = 9;
             // 
             // chkName
@@ -136,9 +140,9 @@
             // cbxCategory
             // 
             cbxCategory.FormattingEnabled = true;
-            cbxCategory.Location = new Point(37, 133);
+            cbxCategory.Location = new Point(35, 137);
             cbxCategory.Name = "cbxCategory";
-            cbxCategory.Size = new Size(165, 28);
+            cbxCategory.Size = new Size(190, 28);
             cbxCategory.TabIndex = 14;
             // 
             // lblTitle
@@ -146,18 +150,18 @@
             lblTitle.AutoSize = true;
             lblTitle.Location = new Point(37, 48);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(51, 20);
+            lblTitle.Size = new Size(54, 20);
             lblTitle.TabIndex = 15;
-            lblTitle.Text = "Rubrik";
+            lblTitle.Text = "Rubrik:";
             // 
             // lblCategory
             // 
             lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(37, 110);
+            lblCategory.Location = new Point(35, 111);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(66, 20);
+            lblCategory.Size = new Size(69, 20);
             lblCategory.TabIndex = 16;
-            lblCategory.Text = "Kategori";
+            lblCategory.Text = "Kategori:";
             // 
             // btnGetAllRecipes
             // 
@@ -172,17 +176,55 @@
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(38, 169);
+            lblDescription.Location = new Point(36, 234);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(84, 20);
             lblDescription.TabIndex = 18;
             lblDescription.Text = "Beskrivning";
+            // 
+            // txtNewCategory
+            // 
+            txtNewCategory.Location = new Point(38, 195);
+            txtNewCategory.Name = "txtNewCategory";
+            txtNewCategory.Size = new Size(187, 27);
+            txtNewCategory.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(38, 172);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 20);
+            label1.TabIndex = 20;
+            // 
+            // lblNewCategory
+            // 
+            lblNewCategory.AutoSize = true;
+            lblNewCategory.Location = new Point(36, 171);
+            lblNewCategory.Name = "lblNewCategory";
+            lblNewCategory.Size = new Size(144, 20);
+            lblNewCategory.TabIndex = 21;
+            lblNewCategory.Text = "Lägg till ny kategori:";
+            // 
+            // btnNewCategory
+            // 
+            btnNewCategory.Location = new Point(231, 195);
+            btnNewCategory.Name = "btnNewCategory";
+            btnNewCategory.Size = new Size(94, 29);
+            btnNewCategory.TabIndex = 22;
+            btnNewCategory.Text = "Lägg till";
+            btnNewCategory.UseVisualStyleBackColor = true;
+            btnNewCategory.Click += btnNewCategory_Click;
             // 
             // FrmAdminScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnNewCategory);
+            Controls.Add(lblNewCategory);
+            Controls.Add(label1);
+            Controls.Add(txtNewCategory);
             Controls.Add(lblDescription);
             Controls.Add(btnGetAllRecipes);
             Controls.Add(lblCategory);
@@ -221,5 +263,9 @@
         private Label lblCategory;
         private Button btnGetAllRecipes;
         private Label lblDescription;
+        private TextBox txtNewCategory;
+        private Label label1;
+        private Label lblNewCategory;
+        private Button btnNewCategory;
     }
 }
