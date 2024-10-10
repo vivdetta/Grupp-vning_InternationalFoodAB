@@ -42,17 +42,20 @@
             // lbxGuestResults
             // 
             lbxGuestResults.FormattingEnabled = true;
-            lbxGuestResults.Location = new Point(238, 213);
+            lbxGuestResults.ItemHeight = 25;
+            lbxGuestResults.Location = new Point(298, 266);
+            lbxGuestResults.Margin = new Padding(4, 4, 4, 4);
             lbxGuestResults.Name = "lbxGuestResults";
-            lbxGuestResults.Size = new Size(288, 224);
+            lbxGuestResults.Size = new Size(359, 279);
             lbxGuestResults.TabIndex = 0;
             lbxGuestResults.SelectedIndexChanged += lbxGuestResults_SelectedIndexChanged;
             // 
             // btnGuestOpenRecipe
             // 
-            btnGuestOpenRecipe.Location = new Point(548, 340);
+            btnGuestOpenRecipe.Location = new Point(685, 425);
+            btnGuestOpenRecipe.Margin = new Padding(4, 4, 4, 4);
             btnGuestOpenRecipe.Name = "btnGuestOpenRecipe";
-            btnGuestOpenRecipe.Size = new Size(120, 41);
+            btnGuestOpenRecipe.Size = new Size(150, 51);
             btnGuestOpenRecipe.TabIndex = 1;
             btnGuestOpenRecipe.Text = "Öppna recept";
             btnGuestOpenRecipe.UseVisualStyleBackColor = true;
@@ -60,36 +63,41 @@
             // 
             // btnGuestSearch
             // 
-            btnGuestSearch.Location = new Point(444, 120);
+            btnGuestSearch.Location = new Point(555, 150);
+            btnGuestSearch.Margin = new Padding(4, 4, 4, 4);
             btnGuestSearch.Name = "btnGuestSearch";
-            btnGuestSearch.Size = new Size(80, 33);
+            btnGuestSearch.Size = new Size(100, 41);
             btnGuestSearch.TabIndex = 2;
             btnGuestSearch.Text = "Sök";
             btnGuestSearch.UseVisualStyleBackColor = true;
+            btnGuestSearch.Click += btnGuestSearch_Click;
             // 
             // txtGuestSearch
             // 
-            txtGuestSearch.Location = new Point(238, 120);
+            txtGuestSearch.Location = new Point(298, 150);
+            txtGuestSearch.Margin = new Padding(4, 4, 4, 4);
             txtGuestSearch.Name = "txtGuestSearch";
-            txtGuestSearch.Size = new Size(191, 27);
+            txtGuestSearch.Size = new Size(238, 31);
             txtGuestSearch.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(186, 24);
+            label1.Location = new Point(232, 30);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(415, 67);
+            label1.Size = new Size(495, 79);
             label1.TabIndex = 4;
             label1.Text = "Öppna Recept";
             // 
             // chkSearchName
             // 
             chkSearchName.AutoSize = true;
-            chkSearchName.Location = new Point(301, 159);
+            chkSearchName.Location = new Point(376, 199);
+            chkSearchName.Margin = new Padding(4, 4, 4, 4);
             chkSearchName.Name = "chkSearchName";
-            chkSearchName.Size = new Size(71, 24);
+            chkSearchName.Size = new Size(86, 29);
             chkSearchName.TabIndex = 5;
             chkSearchName.Text = "Namn";
             chkSearchName.UseVisualStyleBackColor = true;
@@ -97,9 +105,10 @@
             // chkSearchType
             // 
             chkSearchType.AutoSize = true;
-            chkSearchType.Location = new Point(378, 159);
+            chkSearchType.Location = new Point(472, 199);
+            chkSearchType.Margin = new Padding(4, 4, 4, 4);
             chkSearchType.Name = "chkSearchType";
-            chkSearchType.Size = new Size(54, 24);
+            chkSearchType.Size = new Size(66, 29);
             chkSearchType.TabIndex = 6;
             chkSearchType.Text = "Typ";
             chkSearchType.UseVisualStyleBackColor = true;
@@ -107,17 +116,19 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(238, 159);
+            label2.Location = new Point(298, 199);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(57, 20);
+            label2.Size = new Size(71, 25);
             label2.TabIndex = 7;
             label2.Text = "Sök på:";
             // 
             // btnGetList
             // 
-            btnGetList.Location = new Point(548, 400);
+            btnGetList.Location = new Point(685, 500);
+            btnGetList.Margin = new Padding(4, 4, 4, 4);
             btnGetList.Name = "btnGetList";
-            btnGetList.Size = new Size(120, 37);
+            btnGetList.Size = new Size(150, 46);
             btnGetList.TabIndex = 8;
             btnGetList.Text = "Hämta alla";
             btnGetList.UseVisualStyleBackColor = true;
@@ -125,9 +136,9 @@
             // 
             // FrmGuest_Screen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(828, 497);
+            ClientSize = new Size(1035, 621);
             Controls.Add(btnGetList);
             Controls.Add(label2);
             Controls.Add(chkSearchType);
@@ -137,6 +148,7 @@
             Controls.Add(btnGuestSearch);
             Controls.Add(btnGuestOpenRecipe);
             Controls.Add(lbxGuestResults);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FrmGuest_Screen";
             Text = "Gäst";
             ResumeLayout(false);

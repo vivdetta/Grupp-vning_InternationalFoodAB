@@ -1,14 +1,4 @@
 ﻿using Gruppövning_InternationalFoodAB.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Gruppövning_InternationalFoodAB.WinForms
 {
@@ -32,6 +22,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             //Måste kopplas ihop med btnNewCategory
         }
 
+        //Valt recept
         private void lbxAdminView_SelectedIndexChanged(object sender, EventArgs e)
         {
             Recept selectedRecept = lbxAdminView.SelectedItem as Recept;
@@ -40,11 +31,13 @@ namespace Gruppövning_InternationalFoodAB.WinForms
                 selectedRecepie = selectedRecept;
         }
 
+        //Öppna recept
         private void btnOpenRecipe_Click(object sender, EventArgs e)
         {
             FormAdmin_SelectedRecept formSelectedRecept = new FormAdmin_SelectedRecept(selectedRecepie);
         }
 
+        //Skriva ut alla recept
         private void btnGetAllRecipes_Click(object sender, EventArgs e)
         {
             List<Recept> ReceptList = recept_Handler.Read();
@@ -56,6 +49,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             }
         }
 
+        //Skapa nytt recept
         private void btnCreate_Click(object sender, EventArgs e)
         {
             Recept recept = new Recept
@@ -71,11 +65,24 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             txtDescription.Text = "";
         }
 
+
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
             string newCategory = txtNewCategory.Text;
             cbxCategory.Items.Add(newCategory);
             txtNewCategory.Clear();
+
+//Söka recept 
+        private void btnAdminSearch_Click(object sender, EventArgs e)
+        {
+            var searchResults = recept_Handler.ShowSearchResults(txtSearch.Text, chkName.Checked, chkType.Checked);
+
+            lbxAdminView.Items.Clear();
+
+            foreach (var recept in searchResults)
+            {
+                lbxAdminView.Items.Add(recept);
+            }
         }
     }
 }
