@@ -20,6 +20,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         {
             InitializeComponent();
         }
+
         private void btnGetList_Click(object sender, EventArgs e)
         {
             List<Recept> ReceptList = recept_Handler.Read();
@@ -30,6 +31,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
                 lbxGuestResults.Items.Add(recept);
             }
         }
+
         private void lbxGuestResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             Recept selectedRecept = lbxGuestResults.SelectedItem as Recept;
@@ -37,10 +39,15 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             if (selectedRecept != null)
                 selectedRecepie = selectedRecept;
         }
+
         private void btnGuestOpenRecipe_Click(object sender, EventArgs e)
         {
-            //måste skapas upp
-            // FormGuest_SelectedRecept formSelectedRecept = new FormGuest_SelectedRecept(selectedRecepie);
+
+
+            //Öppnar nya formuläret där valt recept visas för användaren
+            FrmGuest_ShowRecept formShowRecept = new FrmGuest_ShowRecept(selectedRecepie);
+
+
         }
     }
 }
