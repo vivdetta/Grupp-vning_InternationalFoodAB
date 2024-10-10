@@ -71,7 +71,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             string newCategory = txtNewCategory.Text;
             cbxCategory.Items.Add(newCategory);
             txtNewCategory.Clear();
-
+        }
 //Söka recept 
         private void btnAdminSearch_Click(object sender, EventArgs e)
         {
