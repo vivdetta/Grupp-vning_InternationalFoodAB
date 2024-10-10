@@ -76,6 +76,8 @@ namespace Gruppövning_InternationalFoodAB.Classes
             // We take in a key word from the user and see if any recepts contain it. 
             // We then return a list to be displayed. 
 
+            AllRecepts = Read(); //Läsa in recept från filen
+
             var searchResults = new List<Recept>();
 
             if (name)
@@ -99,18 +101,6 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 return searchResults;
             }
         }
-
-        //Tidigare version av ovan sökningsmetod - ta bort om den nya fungerar 
-        //public List<Recept> ShowSearchResults(string keyWord)
-        //{
-        //    // We take in a key word from the user and see if any recepts contain it. 
-        //    // We then return a list to be displayed. 
-        //    var searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord) ||
-        //                                    recept.Description.Contains(keyWord) ||
-        //                                    recept.TypeOfRecept.Contains(keyWord))
-        //                                    .ToList();
-        //    return searchResults;
-        //}
 
         //Delete
         public void Delete(Guid receptId)
