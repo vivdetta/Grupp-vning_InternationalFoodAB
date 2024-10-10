@@ -9,6 +9,17 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         public FrmAdminScreen()
         {
             InitializeComponent();
+
+            List<Recept> typeOfRecipe = new List<Recept>();
+
+            foreach (var recept in typeOfRecipe)
+            {
+                cbxCategory.Items.Add(recept.TypeOfRecept);
+            }
+
+            //cbxCategory.Items.AddRange(typeOfRecipe.Select(recept => recept.TypeOfRecept).ToArray());
+            //Måste kopplas till txtNewCategory
+            //Måste kopplas ihop med btnNewCategory
         }
 
         //Valt recept
@@ -54,7 +65,14 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             txtDescription.Text = "";
         }
 
-        //Söka recept 
+
+        private void btnNewCategory_Click(object sender, EventArgs e)
+        {
+            string newCategory = txtNewCategory.Text;
+            cbxCategory.Items.Add(newCategory);
+            txtNewCategory.Clear();
+
+//Söka recept 
         private void btnAdminSearch_Click(object sender, EventArgs e)
         {
             var searchResults = recept_Handler.ShowSearchResults(txtSearch.Text, chkName.Checked, chkType.Checked);
