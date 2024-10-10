@@ -99,16 +99,37 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
 
         //söker
-        public List<Recept> ShowSearchResults(string keyWord)
+        public List<Recept> ShowSearchResults(string keyWord, bool name, bool type)
         {
             // We take in a key word from the user and see if any recepts contain it. 
             // We then return a list to be displayed. 
-            var searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord) ||
-                                            recept.Description.Contains(keyWord) ||
-                                            recept.TypeOfRecept.Contains(keyWord))
-                                            .ToList();
-            return searchResults;
+
+            AllRecepts = Read(); //Läsa in recept från filen
+
+            var searchResults = new List<Recept>();
+
+            if (name)
+            {
+                searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord))
+                                .ToList();
+                return searchResults;
+            }
+            else if (type)
+            {
+                searchResults = AllRecepts.Where(recept => recept.TypeOfRecept.Contains(keyWord))
+                                .ToList();
+                return searchResults;
+            }
+            else
+            {
+                searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord) ||
+                                                recept.Description.Contains(keyWord) ||
+                                                recept.TypeOfRecept.Contains(keyWord))
+                                                .ToList();
+                return searchResults;
+            }
         }
+
         //Delete
         public void Delete(Guid receptId)
         {
