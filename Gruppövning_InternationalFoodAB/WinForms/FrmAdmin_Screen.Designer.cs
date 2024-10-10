@@ -33,12 +33,12 @@
             btnOpenRecipe = new Button();
             labelAdminWelcome = new Label();
             lbxAdminView = new ListBox();
-            txtSearchItem = new TextBox();
+            txtTitle = new TextBox();
             txtDescription = new TextBox();
             chkName = new CheckBox();
             chkType = new CheckBox();
             txtSearch = new TextBox();
-            comboBox1 = new ComboBox();
+            cbxCategory = new ComboBox();
             lblTitle = new Label();
             lblCategory = new Label();
             btnGetAllRecipes = new Button();
@@ -53,6 +53,7 @@
             btnCreate.TabIndex = 0;
             btnCreate.Text = "Skapa";
             btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
             // btnAdminSearch
             // 
@@ -90,12 +91,12 @@
             lbxAdminView.TabIndex = 7;
             lbxAdminView.SelectedIndexChanged += lbxAdminView_SelectedIndexChanged;
             // 
-            // txtSearchItem
+            // txtTitle
             // 
-            txtSearchItem.Location = new Point(35, 71);
-            txtSearchItem.Name = "txtSearchItem";
-            txtSearchItem.Size = new Size(163, 27);
-            txtSearchItem.TabIndex = 8;
+            txtTitle.Location = new Point(35, 71);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(163, 27);
+            txtTitle.TabIndex = 8;
             // 
             // txtDescription
             // 
@@ -132,13 +133,13 @@
             txtSearch.Size = new Size(208, 27);
             txtSearch.TabIndex = 12;
             // 
-            // comboBox1
+            // cbxCategory
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(37, 133);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(165, 28);
-            comboBox1.TabIndex = 14;
+            cbxCategory.FormattingEnabled = true;
+            cbxCategory.Location = new Point(37, 133);
+            cbxCategory.Name = "cbxCategory";
+            cbxCategory.Size = new Size(165, 28);
+            cbxCategory.TabIndex = 14;
             // 
             // lblTitle
             // 
@@ -186,12 +187,12 @@
             Controls.Add(btnGetAllRecipes);
             Controls.Add(lblCategory);
             Controls.Add(lblTitle);
-            Controls.Add(comboBox1);
+            Controls.Add(cbxCategory);
             Controls.Add(txtSearch);
             Controls.Add(chkType);
             Controls.Add(chkName);
             Controls.Add(txtDescription);
-            Controls.Add(txtSearchItem);
+            Controls.Add(txtTitle);
             Controls.Add(lbxAdminView);
             Controls.Add(labelAdminWelcome);
             Controls.Add(btnOpenRecipe);
@@ -210,12 +211,12 @@
         private Button btnOpenRecipe;
         private Label labelAdminWelcome;
         private ListBox lbxAdminView;
-        private TextBox txtSearchItem;
+        private TextBox txtTitle;
         private TextBox txtDescription;
         private CheckBox chkName;
         private CheckBox chkType;
         private TextBox txtSearch;
-        private ComboBox comboBox1;
+        private ComboBox cbxCategory;
         private Label lblTitle;
         private Label lblCategory;
         private Button btnGetAllRecipes;

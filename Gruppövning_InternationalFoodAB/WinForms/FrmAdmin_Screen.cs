@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,6 +43,21 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             {
                 lbxAdminView.Items.Add(recept);
             }
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            Recept recept = new Recept
+            {
+                Name = txtTitle.Text,
+                Description = txtDescription.Text,
+                TypeOfRecept = cbxCategory.Text
+            };
+
+            recept_Handler.Create(recept);
+
+            txtTitle.Text = "";
+            txtDescription.Text = "";
         }
     }
 }
