@@ -61,7 +61,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 receptToUpdate.Description = updatedRecept.Description;
                 receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
 
-                WriterToFile();
+                WriteToFile();
                 MessageBox.Show("Receptet har uppdaterats.");
             }
             else
@@ -86,12 +86,12 @@ namespace Gruppövning_InternationalFoodAB.Classes
         {
             //List<Recept> receptList = Read();
             AllRecepts.RemoveAll(recept => recept.Id == receptId);
-            WriterToFile();
+            WriteToFile();
 
             MessageBox.Show("Receptet har tagits bort.");
         }
 
-        public void WriterToFile()
+        public void WriteToFile()
         {
             string filePath = FileDirectory.GetJsonReceptPath();
             using (StreamWriter sw = new StreamWriter(filePath, false))
