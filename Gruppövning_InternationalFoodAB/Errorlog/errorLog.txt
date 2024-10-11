@@ -1,0 +1,90 @@
+2024-10-10 21:06:33: Ett fel inträffade - Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Update(Guid receptId, Recept updatedRecept) in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 117
+2024-10-10 21:07:22: Ett fel inträffade - Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Update(Guid receptId, Recept updatedRecept) in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 117
+2024-10-10 21:19:48: Ett fel inträffade - '{' is invalid after a single JSON value. Expected end of data. Path: $[4] | LineNumber: 25 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 61
+2024-10-10 21:19:52: Ett fel inträffade - '{' is invalid after a single JSON value. Expected end of data. Path: $[4] | LineNumber: 25 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 61
+2024-10-10 21:20:49: Ett fel inträffade - The JSON value could not be converted to System.Collections.Generic.List`1[Gruppövning_InternationalFoodAB.Classes.Recept]. Path: $ | LineNumber: 1 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, TCollection& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 61
+2024-10-10 21:23:18: Ett fel inträffade - The input does not contain any JSON tokens. Expected the input to start with a valid JSON token, when isFinalBlock is true. Path: $ | LineNumber: 0 | BytePositionInLine: 0.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 55
+2024-10-10 21:23:29: Ett fel inträffade - The input does not contain any JSON tokens. Expected the input to start with a valid JSON token, when isFinalBlock is true. Path: $ | LineNumber: 0 | BytePositionInLine: 0.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 55
+2024-10-10 21:26:46: Ett fel inträffade - The input does not contain any JSON tokens. Expected the input to start with a valid JSON token, when isFinalBlock is true. Path: $ | LineNumber: 0 | BytePositionInLine: 0.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 55
+2024-10-10 21:29:49: Ett fel inträffade - Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Update(Guid receptId, Recept updatedRecept) in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 88
+2024-10-10 21:34:25: Ett fel inträffade - Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Update(Guid receptId, Recept updatedRecept) in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 89
+2024-10-10 21:41:04: Ett fel inträffade - Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Update(Guid receptId, Recept updatedRecept) in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 90
+2024-10-10 21:59:54: Ett fel inträffade - '{' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 98.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 55
+2024-10-10 21:59:56: Ett fel inträffade - '{' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 98.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 55
+2024-10-11 09:05:44: Ett fel inträffade - '{' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 98.
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Gruppövning_InternationalFoodAB.Classes.Recept_Handler.Read() in C:\source\.NETProgrammering\C#\GruppInlamning\Gruppövning_InternationalFoodAB\Classes\Recept_Handler.cs:line 55

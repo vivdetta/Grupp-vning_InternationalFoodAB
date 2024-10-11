@@ -1,8 +1,4 @@
-[
-  {
-    "Id": "efd1cfc9-daba-481c-a4f7-c76b1c0bafd2",
-    "Name": "TEST",
-    "Description": "",
-    "TypeOfRecept": ""
-  }
-]
+{"Id":"e64e8f76-aeb8-44ac-9b7c-e6501b6ad8da","Name":"Test","Description":"testar om det funkar","TypeOfRecept":""}
+{"Id":"87ef296a-378c-4007-938f-b8023146e835","Name":"Pasta","Description":"Pasta med tomats\u00E5s","TypeOfRecept":""}
+{"Id":"faf5b09b-df67-4caa-80c4-f6509deb1847","Name":"test","Description":"test","TypeOfRecept":""}
+{"Id":"bfc9581e-0ec0-43ca-b693-2d24791ef4c2","Name":"Pasta","Description":"Korv","TypeOfRecept":""}

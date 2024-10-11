@@ -1,6 +1,6 @@
 ﻿namespace Gruppövning_InternationalFoodAB.WinForms
 {
-    partial class FormAdmin_SelectedRecept
+    partial class FormAdmin_ShowRecept
     {
         /// <summary>
         /// Required designer variable.
