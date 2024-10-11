@@ -15,6 +15,7 @@ namespace Gruppövning_InternationalFoodAB
             // guest to a form where they can search for a particular recipe
             FrmGuest_Screen guest_Screen = new FrmGuest_Screen();
             guest_Screen.Show();
+            this.Hide();
         }
 
         private void buttonAdmin_Click(object sender, EventArgs e)
@@ -23,6 +24,7 @@ namespace Gruppövning_InternationalFoodAB
             // guest to a form where they can search for a particular recipe
             FormAdmin_Login admin_Login = new FormAdmin_Login();
             admin_Login.Show();
+            this.Hide();
         }
     }
 }

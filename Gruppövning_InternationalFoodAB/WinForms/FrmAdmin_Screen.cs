@@ -9,6 +9,11 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         public FrmAdminScreen()
         {
             InitializeComponent();
+            cbxCategory.Items.Add("Kött");
+            cbxCategory.Items.Add("Fisk");
+            cbxCategory.Items.Add("Sallader");
+            cbxCategory.Items.Add("Soppor");
+            cbxCategory.Items.Add("Desserter/Kakor");
 
             List<Recept> typeOfRecipe = new List<Recept>();
 
@@ -60,15 +65,38 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         //Skapa nytt recept
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            Recept recept = new Recept
+            if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
-                Name = txtTitle.Text,
-                Description = txtDescription.Text,
-                TypeOfRecept = cbxCategory.Text
-            };
-            recept_Handler.Create(recept);
-            txtTitle.Text = "";
-            txtDescription.Text = "";
+                MessageBox.Show("Please enter a receipt NAME before saving.");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(cbxCategory.Text))
+            {
+                MessageBox.Show("Please enter a receipt TYPE before saving.");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                MessageBox.Show("Please enter a DESCRIPTION of the receipt before saving.");
+                return;
+
+            }
+            else
+            {
+                Recept recept = new Recept
+                {
+                    Name = txtTitle.Text,
+                    Description = txtDescription.Text,
+                    TypeOfRecept = cbxCategory.Text
+                };
+
+                recept_Handler.Create(recept);
+                txtTitle.Clear();
+                txtDescription.Clear();
+
+            }
+
+
         }
 
 
@@ -78,7 +106,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             cbxCategory.Items.Add(newCategory);
             txtNewCategory.Clear();
         }
-//Söka recept 
+        //Söka recept 
         private void btnAdminSearch_Click(object sender, EventArgs e)
         {
             var searchResults = recept_Handler.ShowSearchResults(txtSearch.Text, chkName.Checked, chkType.Checked);
@@ -89,6 +117,11 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             {
                 lbxAdminView.Items.Add(recept);
             }
+        }
+
+        private void buttonStänga_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

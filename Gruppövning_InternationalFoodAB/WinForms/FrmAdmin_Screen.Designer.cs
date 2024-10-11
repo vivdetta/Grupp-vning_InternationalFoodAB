@@ -47,13 +47,15 @@
             label1 = new Label();
             lblNewCategory = new Label();
             btnNewCategory = new Button();
+            buttonStänga = new Button();
             SuspendLayout();
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(167, 374);
+            btnCreate.Location = new Point(209, 468);
+            btnCreate.Margin = new Padding(4, 4, 4, 4);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(111, 46);
+            btnCreate.Size = new Size(139, 58);
             btnCreate.TabIndex = 0;
             btnCreate.Text = "Skapa";
             btnCreate.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // btnAdminSearch
             // 
-            btnAdminSearch.Location = new Point(666, 39);
+            btnAdminSearch.Location = new Point(832, 49);
+            btnAdminSearch.Margin = new Padding(4, 4, 4, 4);
             btnAdminSearch.Name = "btnAdminSearch";
-            btnAdminSearch.Size = new Size(96, 33);
+            btnAdminSearch.Size = new Size(120, 41);
             btnAdminSearch.TabIndex = 2;
             btnAdminSearch.Text = "Sök";
             btnAdminSearch.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // btnOpenRecipe
             // 
-            btnOpenRecipe.Location = new Point(607, 345);
+            btnOpenRecipe.Location = new Point(759, 431);
+            btnOpenRecipe.Margin = new Padding(4, 4, 4, 4);
             btnOpenRecipe.Name = "btnOpenRecipe";
-            btnOpenRecipe.Size = new Size(111, 46);
+            btnOpenRecipe.Size = new Size(139, 58);
             btnOpenRecipe.TabIndex = 5;
             btnOpenRecipe.Text = "Öppna recept";
             btnOpenRecipe.UseVisualStyleBackColor = true;
@@ -82,41 +86,47 @@
             // labelAdminWelcome
             // 
             labelAdminWelcome.AutoSize = true;
-            labelAdminWelcome.Location = new Point(189, 51);
+            labelAdminWelcome.Location = new Point(236, 64);
+            labelAdminWelcome.Margin = new Padding(4, 0, 4, 0);
             labelAdminWelcome.Name = "labelAdminWelcome";
-            labelAdminWelcome.Size = new Size(0, 20);
+            labelAdminWelcome.Size = new Size(0, 25);
             labelAdminWelcome.TabIndex = 6;
             // 
             // lbxAdminView
             // 
             lbxAdminView.FormattingEnabled = true;
-            lbxAdminView.Location = new Point(443, 126);
+            lbxAdminView.ItemHeight = 25;
+            lbxAdminView.Location = new Point(554, 158);
+            lbxAdminView.Margin = new Padding(4, 4, 4, 4);
             lbxAdminView.Name = "lbxAdminView";
-            lbxAdminView.Size = new Size(275, 204);
+            lbxAdminView.Size = new Size(343, 254);
             lbxAdminView.TabIndex = 7;
             lbxAdminView.SelectedIndexChanged += lbxAdminView_SelectedIndexChanged;
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(28, 64);
+            txtTitle.Location = new Point(35, 80);
+            txtTitle.Margin = new Padding(4, 4, 4, 4);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(163, 27);
+            txtTitle.Size = new Size(203, 31);
             txtTitle.TabIndex = 8;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(28, 225);
+            txtDescription.Location = new Point(35, 281);
+            txtDescription.Margin = new Padding(4, 4, 4, 4);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(249, 134);
+            txtDescription.Size = new Size(310, 166);
             txtDescription.TabIndex = 9;
             // 
             // chkName
             // 
             chkName.AutoSize = true;
-            chkName.Location = new Point(443, 87);
+            chkName.Location = new Point(554, 109);
+            chkName.Margin = new Padding(4, 4, 4, 4);
             chkName.Name = "chkName";
-            chkName.Size = new Size(71, 24);
+            chkName.Size = new Size(86, 29);
             chkName.TabIndex = 10;
             chkName.Text = "Namn";
             chkName.UseVisualStyleBackColor = true;
@@ -124,51 +134,57 @@
             // chkType
             // 
             chkType.AutoSize = true;
-            chkType.Location = new Point(550, 87);
+            chkType.Location = new Point(688, 109);
+            chkType.Margin = new Padding(4, 4, 4, 4);
             chkType.Name = "chkType";
-            chkType.Size = new Size(54, 24);
+            chkType.Size = new Size(66, 29);
             chkType.TabIndex = 11;
             chkType.Text = "Typ";
             chkType.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(443, 45);
+            txtSearch.Location = new Point(554, 56);
+            txtSearch.Margin = new Padding(4, 4, 4, 4);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(208, 27);
+            txtSearch.Size = new Size(259, 31);
             txtSearch.TabIndex = 12;
             // 
             // cbxCategory
             // 
             cbxCategory.FormattingEnabled = true;
-            cbxCategory.Location = new Point(26, 117);
+            cbxCategory.Location = new Point(32, 146);
+            cbxCategory.Margin = new Padding(4, 4, 4, 4);
             cbxCategory.Name = "cbxCategory";
-            cbxCategory.Size = new Size(165, 28);
+            cbxCategory.Size = new Size(205, 33);
             cbxCategory.TabIndex = 14;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(28, 41);
+            lblTitle.Location = new Point(35, 51);
+            lblTitle.Margin = new Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(54, 20);
+            lblTitle.Size = new Size(67, 25);
             lblTitle.TabIndex = 15;
             lblTitle.Text = "Rubrik:";
             // 
             // lblCategory
             // 
             lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(26, 94);
+            lblCategory.Location = new Point(32, 118);
+            lblCategory.Margin = new Padding(4, 0, 4, 0);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(69, 20);
+            lblCategory.Size = new Size(82, 25);
             lblCategory.TabIndex = 16;
             lblCategory.Text = "Kategori:";
             // 
             // btnGetAllRecipes
             // 
-            btnGetAllRecipes.Location = new Point(443, 345);
+            btnGetAllRecipes.Location = new Point(554, 431);
+            btnGetAllRecipes.Margin = new Padding(4, 4, 4, 4);
             btnGetAllRecipes.Name = "btnGetAllRecipes";
-            btnGetAllRecipes.Size = new Size(111, 46);
+            btnGetAllRecipes.Size = new Size(139, 58);
             btnGetAllRecipes.TabIndex = 17;
             btnGetAllRecipes.Text = "Hämta alla";
             btnGetAllRecipes.UseVisualStyleBackColor = true;
@@ -177,55 +193,68 @@
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(28, 202);
+            lblDescription.Location = new Point(35, 252);
+            lblDescription.Margin = new Padding(4, 0, 4, 0);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(84, 20);
+            lblDescription.Size = new Size(102, 25);
             lblDescription.TabIndex = 18;
             lblDescription.Text = "Beskrivning";
             // 
             // txtNewCategory
             // 
-            txtNewCategory.Location = new Point(26, 169);
+            txtNewCategory.Location = new Point(32, 211);
             txtNewCategory.Margin = new Padding(2);
             txtNewCategory.Name = "txtNewCategory";
-            txtNewCategory.Size = new Size(150, 27);
+            txtNewCategory.Size = new Size(186, 31);
             txtNewCategory.TabIndex = 19;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 47);
+            label1.Location = new Point(40, 59);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(0, 20);
+            label1.Size = new Size(0, 25);
             label1.TabIndex = 20;
             // 
             // lblNewCategory
             // 
             lblNewCategory.AutoSize = true;
-            lblNewCategory.Location = new Point(26, 147);
+            lblNewCategory.Location = new Point(32, 184);
             lblNewCategory.Margin = new Padding(2, 0, 2, 0);
             lblNewCategory.Name = "lblNewCategory";
-            lblNewCategory.Size = new Size(144, 20);
+            lblNewCategory.Size = new Size(172, 25);
             lblNewCategory.TabIndex = 21;
             lblNewCategory.Text = "Lägg till ny kategori:";
             // 
             // btnNewCategory
             // 
-            btnNewCategory.Location = new Point(186, 169);
+            btnNewCategory.Location = new Point(232, 211);
             btnNewCategory.Margin = new Padding(2);
             btnNewCategory.Name = "btnNewCategory";
-            btnNewCategory.Size = new Size(88, 27);
+            btnNewCategory.Size = new Size(110, 34);
             btnNewCategory.TabIndex = 22;
             btnNewCategory.Text = "Lägg till";
             btnNewCategory.UseVisualStyleBackColor = true;
             btnNewCategory.Click += btnNewCategory_Click;
             // 
+            // buttonStänga
+            // 
+            buttonStänga.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonStänga.Location = new Point(678, 527);
+            buttonStänga.Name = "buttonStänga";
+            buttonStänga.Size = new Size(222, 51);
+            buttonStänga.TabIndex = 23;
+            buttonStänga.Text = "Stäng Allt";
+            buttonStänga.UseVisualStyleBackColor = true;
+            buttonStänga.Click += buttonStänga_Click;
+            // 
             // FrmAdminScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(829, 454);
+            ClientSize = new Size(1047, 619);
+            Controls.Add(buttonStänga);
             Controls.Add(btnNewCategory);
             Controls.Add(lblNewCategory);
             Controls.Add(label1);
@@ -245,6 +274,7 @@
             Controls.Add(btnOpenRecipe);
             Controls.Add(btnAdminSearch);
             Controls.Add(btnCreate);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FrmAdminScreen";
             Text = "Admin";
             ResumeLayout(false);
@@ -272,5 +302,6 @@
         private Label label1;
         private Label lblNewCategory;
         private Button btnNewCategory;
+        private Button buttonStänga;
     }
 }

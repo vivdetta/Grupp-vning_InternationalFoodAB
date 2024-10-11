@@ -60,5 +60,10 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             }
 
         }
+
+        private void buttonStänga_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

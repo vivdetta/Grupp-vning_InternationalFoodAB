@@ -26,21 +26,33 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             if (confirmResult == DialogResult.Yes)
                 recept_Handler.Delete(this.recept.Id);
 
-            MessageBox.Show("Receptet har nu tagits bort");
+            //MessageBox.Show("Receptet har nu tagits bort");
+
+            this.Hide();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Recept updatedRecept = new Recept()
             {
-                Id = this.recept.Id,
-                Name = this.recept.Name,
-                TypeOfRecept = this.recept.TypeOfRecept,
-                Description = this.recept.Description
-
+                Id = this.recept.Id, // Keep the same ID
+                Name = txtName.Text,
+                TypeOfRecept = txtTypeOfRecept.Text,
+                Description = txtDescription.Text
             };
+        //Recept updatedRecept = new Recept()
+        //{
+        //    Id = this.recept.Id,
+        //    Name = this.recept.Name,
+        //    TypeOfRecept = this.recept.TypeOfRecept,
+        //    Description = this.recept.Description
+
+        //};
 
             recept_Handler.Update(updatedRecept.Id, updatedRecept);
+            //MessageBox.Show("Receptet har nu uppdaterats.");
+            this.Hide();
+
         }
     }
 }

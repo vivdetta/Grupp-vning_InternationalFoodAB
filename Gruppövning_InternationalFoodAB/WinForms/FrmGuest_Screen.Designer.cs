@@ -37,6 +37,7 @@
             chkSearchType = new CheckBox();
             label2 = new Label();
             btnGetList = new Button();
+            buttonStänga = new Button();
             SuspendLayout();
             // 
             // lbxGuestResults
@@ -44,7 +45,7 @@
             lbxGuestResults.FormattingEnabled = true;
             lbxGuestResults.ItemHeight = 25;
             lbxGuestResults.Location = new Point(298, 266);
-            lbxGuestResults.Margin = new Padding(4, 4, 4, 4);
+            lbxGuestResults.Margin = new Padding(4);
             lbxGuestResults.Name = "lbxGuestResults";
             lbxGuestResults.Size = new Size(359, 279);
             lbxGuestResults.TabIndex = 0;
@@ -53,7 +54,7 @@
             // btnGuestOpenRecipe
             // 
             btnGuestOpenRecipe.Location = new Point(685, 425);
-            btnGuestOpenRecipe.Margin = new Padding(4, 4, 4, 4);
+            btnGuestOpenRecipe.Margin = new Padding(4);
             btnGuestOpenRecipe.Name = "btnGuestOpenRecipe";
             btnGuestOpenRecipe.Size = new Size(150, 51);
             btnGuestOpenRecipe.TabIndex = 1;
@@ -64,7 +65,7 @@
             // btnGuestSearch
             // 
             btnGuestSearch.Location = new Point(555, 150);
-            btnGuestSearch.Margin = new Padding(4, 4, 4, 4);
+            btnGuestSearch.Margin = new Padding(4);
             btnGuestSearch.Name = "btnGuestSearch";
             btnGuestSearch.Size = new Size(100, 41);
             btnGuestSearch.TabIndex = 2;
@@ -75,7 +76,7 @@
             // txtGuestSearch
             // 
             txtGuestSearch.Location = new Point(298, 150);
-            txtGuestSearch.Margin = new Padding(4, 4, 4, 4);
+            txtGuestSearch.Margin = new Padding(4);
             txtGuestSearch.Name = "txtGuestSearch";
             txtGuestSearch.Size = new Size(238, 31);
             txtGuestSearch.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             chkSearchName.AutoSize = true;
             chkSearchName.Location = new Point(376, 199);
-            chkSearchName.Margin = new Padding(4, 4, 4, 4);
+            chkSearchName.Margin = new Padding(4);
             chkSearchName.Name = "chkSearchName";
             chkSearchName.Size = new Size(86, 29);
             chkSearchName.TabIndex = 5;
@@ -106,7 +107,7 @@
             // 
             chkSearchType.AutoSize = true;
             chkSearchType.Location = new Point(472, 199);
-            chkSearchType.Margin = new Padding(4, 4, 4, 4);
+            chkSearchType.Margin = new Padding(4);
             chkSearchType.Name = "chkSearchType";
             chkSearchType.Size = new Size(66, 29);
             chkSearchType.TabIndex = 6;
@@ -126,7 +127,7 @@
             // btnGetList
             // 
             btnGetList.Location = new Point(685, 500);
-            btnGetList.Margin = new Padding(4, 4, 4, 4);
+            btnGetList.Margin = new Padding(4);
             btnGetList.Name = "btnGetList";
             btnGetList.Size = new Size(150, 46);
             btnGetList.TabIndex = 8;
@@ -134,11 +135,22 @@
             btnGetList.UseVisualStyleBackColor = true;
             btnGetList.Click += btnGetList_Click;
             // 
+            // buttonStänga
+            // 
+            buttonStänga.Location = new Point(91, 490);
+            buttonStänga.Name = "buttonStänga";
+            buttonStänga.Size = new Size(173, 55);
+            buttonStänga.TabIndex = 9;
+            buttonStänga.Text = "Stäng Allt";
+            buttonStänga.UseVisualStyleBackColor = true;
+            buttonStänga.Click += buttonStänga_Click;
+            // 
             // FrmGuest_Screen
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1035, 621);
+            Controls.Add(buttonStänga);
             Controls.Add(btnGetList);
             Controls.Add(label2);
             Controls.Add(chkSearchType);
@@ -148,7 +160,7 @@
             Controls.Add(btnGuestSearch);
             Controls.Add(btnGuestOpenRecipe);
             Controls.Add(lbxGuestResults);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FrmGuest_Screen";
             Text = "Gäst";
             ResumeLayout(false);
@@ -166,5 +178,6 @@
         private CheckBox chkSearchType;
         private Label label2;
         private Button btnGetList;
+        private Button buttonStänga;
     }
 }
