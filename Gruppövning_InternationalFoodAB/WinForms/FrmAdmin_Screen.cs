@@ -4,7 +4,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 {
     public partial class FrmAdminScreen : Form
     {
-        Recept_Handler recept_Handler;
+        Recept_Handler recept_Handler = new Recept_Handler();
         private Recept selectedRecepie;
         public FrmAdminScreen()
         {
@@ -34,7 +34,15 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         //Öppna recept
         private void btnOpenRecipe_Click(object sender, EventArgs e)
         {
-            FormAdmin_SelectedRecept formSelectedRecept = new FormAdmin_SelectedRecept(selectedRecepie);
+            if (selectedRecepie != null)
+            {
+                FormAdmin_ShowRecept formSelectedRecept = new FormAdmin_ShowRecept(selectedRecepie);
+                formSelectedRecept.Show();
+            }
+            else
+            {
+                MessageBox.Show("Välj ett recept först.");
+            }
         }
 
         //Skriva ut alla recept
@@ -45,7 +53,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 
             foreach (var recept in ReceptList)
             {
-                lbxAdminView.Items.Add(recept.Name);
+                lbxAdminView.Items.Add(recept);
             }
         }
 

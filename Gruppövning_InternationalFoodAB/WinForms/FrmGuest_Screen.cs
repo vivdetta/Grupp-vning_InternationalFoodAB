@@ -4,7 +4,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
 {
     public partial class FrmGuest_Screen : Form
     {
-        Recept_Handler recept_Handler;
+        Recept_Handler recept_Handler = new Recept_Handler();
 
         private Recept selectedRecepie;
         public FrmGuest_Screen()
@@ -22,9 +22,9 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             foreach (var recept in searchResults)
             {
                 lbxGuestResults.Items.Add(recept);
-            }   
+            }
         }
-        
+
         //Skriva ut alla recept
         private void btnGetList_Click(object sender, EventArgs e)
         {
@@ -49,8 +49,16 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         //Öppna recept
         private void btnGuestOpenRecipe_Click(object sender, EventArgs e)
         {
-            //Öppnar nya formuläret där valt recept visas för användaren
-            FrmGuest_ShowRecept formShowRecept = new FrmGuest_ShowRecept(selectedRecepie);
+            if (selectedRecepie != null)
+            {
+                FrmGuest_ShowRecept formShowRecept = new FrmGuest_ShowRecept(selectedRecepie);
+                formShowRecept.Show();
+            }
+            else
+            {
+                MessageBox.Show("Välj ett recept först.");
+            }
+
         }
     }
 }

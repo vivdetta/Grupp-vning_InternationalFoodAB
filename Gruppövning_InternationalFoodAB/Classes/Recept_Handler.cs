@@ -1,15 +1,17 @@
-﻿using System.Text.Json;
+﻿using System.IO;
+using System;
+using System.Text.Json;
 
 namespace Gruppövning_InternationalFoodAB.Classes
 {
     public class Recept_Handler
     {
-        public List<Recept> AllRecepts { get; set; }
+        //public List<Recept> AllRecepts { get; set; }    
 
-        public Recept_Handler(List<Recept> allRecepts)
-        {
-            AllRecepts = allRecepts;
-        }
+        //public Recept_Handler(List<Recept> allRecepts)
+        //{
+        //    AllRecepts = allRecepts;
+        //}
 
         //Skapar
         public void Create(Recept recept)
@@ -20,33 +22,12 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 {
                     recept.Id = Guid.NewGuid();
                 }
-
                 string filePath = FileDirectory.GetJsonReceptPath();
-                List<Recept> receptList = new List<Recept>();
-
-                if (File.Exists(filePath))
+                string jsonRecept = JsonSerializer.Serialize(recept);
+                using (StreamWriter sw = new StreamWriter(filePath, true))
                 {
-                    string existingJson = File.ReadAllText(filePath);
-                    if (!string.IsNullOrWhiteSpace(existingJson))
-                    {
-                        try
-                        {
-                            receptList = JsonSerializer.Deserialize<List<Recept>>(existingJson) ?? new List<Recept>();
-                        }
-                        catch (JsonException jsonEx)
-                        {
-                            MessageBox.Show($"JSON-fel: {jsonEx.Message}");
-                            receptList = new List<Recept>(); 
-                        }
-                    }
+                    sw.WriteLine(jsonRecept);
                 }
-
-                receptList.Add(recept);
-                AllRecepts.Add(recept);
-
-                string jsonReceptList = JsonSerializer.Serialize(receptList, new JsonSerializerOptions { WriteIndented = true });
-
-                File.WriteAllText(filePath, jsonReceptList);
                 MessageBox.Show("Recept har lagts till");
             }
             catch (Exception ex)
@@ -59,27 +40,44 @@ namespace Gruppövning_InternationalFoodAB.Classes
         //listar igenom alla
         public List<Recept> Read()
         {
+
             try
             {
-                return AllRecepts;
+                string jsonReceptFilePath = FileDirectory.GetJsonReceptPath();
+
+                List<Recept> personList = new List<Recept>();
+                //AllRecepts = new List<Recept>();
+                using (StreamReader sr = new StreamReader(jsonReceptFilePath))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Recept recept = JsonSerializer.Deserialize<Recept>(line);
+                        personList.Add(recept);
+                        //AllRecepts.Add(recept);
+                    }
+                }
+
+                return personList;
             }
+
             catch (FileNotFoundException ex)
             {
                 LogError(ex);
                 MessageBox.Show("Receptfilen kunde inte hittas.");
-                return new List<Recept>(); // Returnera tom lista om filen inte finns
+                return new List<Recept>(); 
             }
             catch (JsonException ex)
             {
                 LogError(ex);
                 MessageBox.Show("Ett fel inträffade vid tolkning av receptdata.");
-                return new List<Recept>(); // Returnera tom lista vid deserialiseringsfel
+                return new List<Recept>(); 
             }
             catch (Exception ex)
             {
                 LogError(ex);
                 MessageBox.Show("Ett oväntat fel inträffade när recepten skulle hämtas.");
-                return new List<Recept>(); // Returnera tom lista för alla andra typer av fel
+                return new List<Recept>(); 
             }
         }
 
@@ -89,12 +87,13 @@ namespace Gruppövning_InternationalFoodAB.Classes
         {
             try
             {
-                var receptToUpdate = AllRecepts.FirstOrDefault(recept => recept.Id == receptId);
+                List<Recept> receptList = Read();
+                var receptToUpdate = receptList.FirstOrDefault(recept => recept.Id == receptId);
                 receptToUpdate.Name = updatedRecept.Name;
                 receptToUpdate.Description = updatedRecept.Description;
                 receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
 
-                WriteToFile();
+                WriteToFile(receptList);
                 MessageBox.Show("Receptet har uppdaterats.");
             }
             catch (Exception ex)
@@ -112,24 +111,24 @@ namespace Gruppövning_InternationalFoodAB.Classes
             // We then return a list to be displayed. 
 
             //Läsa in recept från filen  för att läsa in våra recept till listan AllRecepts
-            var temp = Read(); 
+            var recepts = Read();
             var searchResults = new List<Recept>();
 
             if (name)
             {
-                searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord))
+                searchResults = recepts.Where(recept => recept.Name.Contains(keyWord))
                                 .ToList();
                 return searchResults;
             }
             else if (type)
             {
-                searchResults = AllRecepts.Where(recept => recept.TypeOfRecept.Contains(keyWord))
+                searchResults = recepts.Where(recept => recept.TypeOfRecept.Contains(keyWord))
                                 .ToList();
                 return searchResults;
             }
             else
             {
-                searchResults = AllRecepts.Where(recept => recept.Name.Contains(keyWord) ||
+                searchResults = recepts.Where(recept => recept.Name.Contains(keyWord) ||
                                                 recept.Description.Contains(keyWord) ||
                                                 recept.TypeOfRecept.Contains(keyWord))
                                                 .ToList();
@@ -142,8 +141,9 @@ namespace Gruppövning_InternationalFoodAB.Classes
         {
             try
             {
-                int removedCount = AllRecepts.RemoveAll(recept => recept.Id == receptId);
-                WriteToFile();
+                List<Recept> receptList = Read();
+                int removedCount = receptList.RemoveAll(recept => recept.Id == receptId);
+                WriteToFile(receptList);
                 MessageBox.Show("Receptet har tagits bort.");
             }
             catch (Exception ex)
@@ -153,12 +153,12 @@ namespace Gruppövning_InternationalFoodAB.Classes
             }
         }
 
-        public void WriteToFile()
+        public void WriteToFile(List <Recept>receptList)
         {
             string filePath = FileDirectory.GetJsonReceptPath();
             using (StreamWriter sw = new StreamWriter(filePath, false))
             {
-                foreach (var recept in AllRecepts)
+                foreach (var recept in receptList)
                 {
                     string jsonRecept = JsonSerializer.Serialize(recept);
                     sw.WriteLine(jsonRecept);
