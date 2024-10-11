@@ -2,3 +2,8 @@
 {"Id":"87ef296a-378c-4007-938f-b8023146e835","Name":"Pasta","Description":"Pasta med tomats\u00E5s","TypeOfRecept":""}
 {"Id":"faf5b09b-df67-4caa-80c4-f6509deb1847","Name":"test","Description":"test","TypeOfRecept":""}
 {"Id":"bfc9581e-0ec0-43ca-b693-2d24791ef4c2","Name":"Pasta","Description":"Korv","TypeOfRecept":""}
+{"Id":"35ad939c-de6f-41a8-8fa3-bb887f8e19aa","Name":"Needed","Description":"This is a discription with all the fields needed.","TypeOfRecept":"Apples"}
+{"Id":"23424292-a807-4bb9-846a-2dde8b703bbe","Name":"Ice Cream","Description":"Its just some ice cream.","TypeOfRecept":"Desserter/Kakor"}
+{"Id":"045855c7-a670-437b-90e3-4805d8a8d3ba","Name":"old cheese","Description":"Just some tasty old cheese","TypeOfRecept":"Desserter/Kakor"}
+{"Id":"e54ceef5-6c5e-4525-ba83-26ca3b0ff1b7","Name":"New Pizza","Description":"This is going to change. But its pizza","TypeOfRecept":"K\u00F6tt"}
+{"Id":"7f6ed5bf-e068-4ad2-baa8-9e3f74ffa6cf","Name":"This just changed!","Description":"How did a bag of soup turn into cats?","TypeOfRecept":"Soppor"}

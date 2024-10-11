@@ -83,18 +83,29 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
 
         //Uppdaterar
+
+        // Viv Try 
         public void Update(Guid receptId, Recept updatedRecept)
         {
             try
             {
                 List<Recept> receptList = Read();
                 var receptToUpdate = receptList.FirstOrDefault(recept => recept.Id == receptId);
-                receptToUpdate.Name = updatedRecept.Name;
-                receptToUpdate.Description = updatedRecept.Description;
-                receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
 
-                WriteToFile(receptList);
-                MessageBox.Show("Receptet har uppdaterats.");
+                if (receptToUpdate != null)
+                {
+                    // Update the fields
+                    receptToUpdate.Name = updatedRecept.Name;
+                    receptToUpdate.Description = updatedRecept.Description;
+                    receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
+
+                    WriteToFile(receptList);  // Save the updated list to the file
+                    MessageBox.Show("Receptet har uppdaterats.");
+                }
+                else
+                {
+                    MessageBox.Show("Receptet kunde inte hittas.");
+                }
             }
             catch (Exception ex)
             {
@@ -102,6 +113,25 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 MessageBox.Show("Ett fel inträffade när receptet skulle uppdateras.");
             }
         }
+        //public void Update(Guid receptId, Recept updatedRecept)
+        //{
+        //    try
+        //    {
+        //        List<Recept> receptList = Read();
+        //        var receptToUpdate = receptList.FirstOrDefault(recept => recept.Id == receptId);
+        //        receptToUpdate.Name = updatedRecept.Name;
+        //        receptToUpdate.Description = updatedRecept.Description;
+        //        receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
+
+        //        WriteToFile(receptList);
+        //        MessageBox.Show("Receptet har uppdaterats.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LogError(ex);
+        //        MessageBox.Show("Ett fel inträffade när receptet skulle uppdateras.");
+        //    }
+        //}
 
 
         //söker
@@ -137,14 +167,26 @@ namespace Gruppövning_InternationalFoodAB.Classes
         }
 
         //Delete
+
+        //Viv Try
+
         public void Delete(Guid receptId)
         {
             try
             {
                 List<Recept> receptList = Read();
-                int removedCount = receptList.RemoveAll(recept => recept.Id == receptId);
-                WriteToFile(receptList);
-                MessageBox.Show("Receptet har tagits bort.");
+                var receptToRemove = receptList.FirstOrDefault(recept => recept.Id == receptId);
+
+                if (receptToRemove != null)
+                {
+                    receptList.Remove(receptToRemove);  // Remove the recipe
+                    WriteToFile(receptList);  // Save the updated list to the file
+                    MessageBox.Show("Receptet har tagits bort.");
+                }
+                else
+                {
+                    MessageBox.Show("Receptet kunde inte hittas.");
+                }
             }
             catch (Exception ex)
             {
@@ -152,6 +194,22 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 MessageBox.Show("Ett fel inträffade när receptet skulle tas bort.");
             }
         }
+
+        //public void Delete(Guid receptId)
+        //{
+        //    try
+        //    {
+        //        List<Recept> receptList = Read();
+        //        int removedCount = receptList.RemoveAll(recept => recept.Id == receptId);
+        //        WriteToFile(receptList);
+        //        MessageBox.Show("Receptet har tagits bort.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LogError(ex);
+        //        MessageBox.Show("Ett fel inträffade när receptet skulle tas bort.");
+        //    }
+        //}
 
         public void WriteToFile(List <Recept>receptList)
         {
