@@ -35,6 +35,7 @@
             lblName = new Label();
             txtName = new TextBox();
             lblReciept = new Label();
+            buttonClose = new Button();
             SuspendLayout();
             // 
             // lblDescription
@@ -48,11 +49,14 @@
             // 
             // txtDescription
             // 
+            txtDescription.BackColor = SystemColors.ButtonHighlight;
             txtDescription.Location = new Point(231, 272);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(690, 295);
+            txtDescription.ReadOnly = true;
+            txtDescription.Size = new Size(688, 237);
             txtDescription.TabIndex = 10;
+            txtDescription.TabStop = false;
             // 
             // lblTypeOfRecept
             // 
@@ -65,10 +69,13 @@
             // 
             // txtTypeOfRecept
             // 
+            txtTypeOfRecept.BackColor = SystemColors.ButtonHighlight;
             txtTypeOfRecept.Location = new Point(231, 215);
             txtTypeOfRecept.Name = "txtTypeOfRecept";
+            txtTypeOfRecept.ReadOnly = true;
             txtTypeOfRecept.Size = new Size(237, 31);
             txtTypeOfRecept.TabIndex = 8;
+            txtTypeOfRecept.TabStop = false;
             // 
             // lblName
             // 
@@ -81,10 +88,13 @@
             // 
             // txtName
             // 
+            txtName.BackColor = SystemColors.ButtonHighlight;
             txtName.Location = new Point(231, 160);
             txtName.Name = "txtName";
+            txtName.ReadOnly = true;
             txtName.Size = new Size(237, 31);
             txtName.TabIndex = 6;
+            txtName.TabStop = false;
             // 
             // lblReciept
             // 
@@ -97,11 +107,22 @@
             lblReciept.TabIndex = 12;
             lblReciept.Text = "Recept";
             // 
+            // buttonClose
+            // 
+            buttonClose.Location = new Point(789, 528);
+            buttonClose.Name = "buttonClose";
+            buttonClose.Size = new Size(130, 57);
+            buttonClose.TabIndex = 13;
+            buttonClose.Text = "Stäng";
+            buttonClose.UseVisualStyleBackColor = true;
+            buttonClose.Click += buttonClose_Click;
+            // 
             // FrmGuest_ShowRecept
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 616);
+            ClientSize = new Size(995, 616);
+            Controls.Add(buttonClose);
             Controls.Add(lblReciept);
             Controls.Add(lblDescription);
             Controls.Add(txtDescription);
@@ -124,5 +145,6 @@
         private Label lblName;
         private TextBox txtName;
         private Label lblReciept;
+        private Button buttonClose;
     }
 }
