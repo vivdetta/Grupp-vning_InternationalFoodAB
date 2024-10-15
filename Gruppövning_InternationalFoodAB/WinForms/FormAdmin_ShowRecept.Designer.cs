@@ -36,19 +36,21 @@
             txtDescription = new TextBox();
             btnDelete = new Button();
             btnUpdate = new Button();
+            lblReciept = new Label();
+            buttonClose = new Button();
             SuspendLayout();
             // 
             // txtName
             // 
-            txtName.Location = new Point(165, 59);
+            txtName.Location = new Point(221, 174);
             txtName.Name = "txtName";
-            txtName.Size = new Size(237, 31);
+            txtName.Size = new Size(258, 31);
             txtName.TabIndex = 0;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(54, 61);
+            lblName.Location = new Point(110, 176);
             lblName.Name = "lblName";
             lblName.Size = new Size(60, 25);
             lblName.TabIndex = 1;
@@ -57,7 +59,7 @@
             // lblTypeOfRecept
             // 
             lblTypeOfRecept.AutoSize = true;
-            lblTypeOfRecept.Location = new Point(54, 116);
+            lblTypeOfRecept.Location = new Point(110, 231);
             lblTypeOfRecept.Name = "lblTypeOfRecept";
             lblTypeOfRecept.Size = new Size(78, 25);
             lblTypeOfRecept.TabIndex = 3;
@@ -65,15 +67,15 @@
             // 
             // txtTypeOfRecept
             // 
-            txtTypeOfRecept.Location = new Point(165, 114);
+            txtTypeOfRecept.Location = new Point(221, 229);
             txtTypeOfRecept.Name = "txtTypeOfRecept";
-            txtTypeOfRecept.Size = new Size(237, 31);
+            txtTypeOfRecept.Size = new Size(258, 31);
             txtTypeOfRecept.TabIndex = 2;
             // 
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(54, 174);
+            lblDescription.Location = new Point(110, 289);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(93, 25);
             lblDescription.TabIndex = 5;
@@ -81,15 +83,15 @@
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(165, 171);
+            txtDescription.Location = new Point(221, 286);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(467, 158);
+            txtDescription.Size = new Size(635, 222);
             txtDescription.TabIndex = 4;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(493, 354);
+            btnDelete.Location = new Point(567, 536);
             btnDelete.Margin = new Padding(4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(139, 58);
@@ -100,7 +102,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(335, 354);
+            btnUpdate.Location = new Point(409, 536);
             btnUpdate.Margin = new Padding(4);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(139, 58);
@@ -109,11 +111,34 @@
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
             // 
-            // FormAdmin_SelectedRecept
+            // lblReciept
+            // 
+            lblReciept.AutoSize = true;
+            lblReciept.Font = new Font("Showcard Gothic", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblReciept.Location = new Point(221, 25);
+            lblReciept.Margin = new Padding(4, 0, 4, 0);
+            lblReciept.Name = "lblReciept";
+            lblReciept.Size = new Size(271, 79);
+            lblReciept.TabIndex = 13;
+            lblReciept.Text = "Recept";
+            // 
+            // buttonClose
+            // 
+            buttonClose.Location = new Point(723, 536);
+            buttonClose.Name = "buttonClose";
+            buttonClose.Size = new Size(133, 58);
+            buttonClose.TabIndex = 14;
+            buttonClose.Text = "Stäng";
+            buttonClose.UseVisualStyleBackColor = true;
+            buttonClose.Click += buttonClose_Click;
+            // 
+            // FormAdmin_ShowRecept
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(770, 529);
+            ClientSize = new Size(918, 629);
+            Controls.Add(buttonClose);
+            Controls.Add(lblReciept);
             Controls.Add(btnUpdate);
             Controls.Add(btnDelete);
             Controls.Add(lblDescription);
@@ -122,7 +147,7 @@
             Controls.Add(txtTypeOfRecept);
             Controls.Add(lblName);
             Controls.Add(txtName);
-            Name = "FormAdmin_SelectedRecept";
+            Name = "FormAdmin_ShowRecept";
             Text = "FormAdmin_SelectedRecept";
             ResumeLayout(false);
             PerformLayout();
@@ -138,5 +163,7 @@
         private TextBox txtDescription;
         private Button btnDelete;
         private Button btnUpdate;
+        private Label lblReciept;
+        private Button buttonClose;
     }
 }

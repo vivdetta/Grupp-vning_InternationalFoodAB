@@ -22,5 +22,10 @@ namespace Gruppövning_InternationalFoodAB.WinForms
             txtTypeOfRecept.Text = recept.TypeOfRecept;
             txtDescription.Text = recept.Description;
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

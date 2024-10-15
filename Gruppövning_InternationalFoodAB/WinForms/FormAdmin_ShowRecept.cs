@@ -40,19 +40,24 @@ namespace Gruppövning_InternationalFoodAB.WinForms
                 TypeOfRecept = txtTypeOfRecept.Text,
                 Description = txtDescription.Text
             };
-        //Recept updatedRecept = new Recept()
-        //{
-        //    Id = this.recept.Id,
-        //    Name = this.recept.Name,
-        //    TypeOfRecept = this.recept.TypeOfRecept,
-        //    Description = this.recept.Description
+            //Recept updatedRecept = new Recept()
+            //{
+            //    Id = this.recept.Id,
+            //    Name = this.recept.Name,
+            //    TypeOfRecept = this.recept.TypeOfRecept,
+            //    Description = this.recept.Description
 
-        //};
+            //};
 
             recept_Handler.Update(updatedRecept.Id, updatedRecept);
             //MessageBox.Show("Receptet har nu uppdaterats.");
             this.Hide();
 
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
