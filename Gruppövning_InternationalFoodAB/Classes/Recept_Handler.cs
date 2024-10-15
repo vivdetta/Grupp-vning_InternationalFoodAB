@@ -146,21 +146,21 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
             if (name)
             {
-                searchResults = recepts.Where(recept => recept.Name.Contains(keyWord))
+                searchResults = recepts.Where(recept => recept.Name.ToLower().Contains(keyWord))
                                 .ToList();
                 return searchResults;
             }
             else if (type)
             {
-                searchResults = recepts.Where(recept => recept.TypeOfRecept.Contains(keyWord))
+                searchResults = recepts.Where(recept => recept.TypeOfRecept.ToLower().Contains(keyWord))
                                 .ToList();
                 return searchResults;
             }
             else
             {
-                searchResults = recepts.Where(recept => recept.Name.Contains(keyWord) ||
-                                                recept.Description.Contains(keyWord) ||
-                                                recept.TypeOfRecept.Contains(keyWord))
+                searchResults = recepts.Where(recept => recept.Name.ToLower().Contains(keyWord) ||
+                                                recept.Description.ToLower().Contains(keyWord) ||
+                                                recept.TypeOfRecept.ToLower().Contains(keyWord))
                                                 .ToList();
                 return searchResults;
             }
