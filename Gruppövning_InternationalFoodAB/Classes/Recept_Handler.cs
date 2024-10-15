@@ -6,14 +6,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
 {
     public class Recept_Handler
     {
-        //public List<Recept> AllRecepts { get; set; }    
-
-        //public Recept_Handler(List<Recept> allRecepts)
-        //{
-        //    AllRecepts = allRecepts;
-        //}
-
-        //Skapar
+        //Skapar en nytt recept
         public void Create(Recept recept)
         {
             try
@@ -37,16 +30,14 @@ namespace Gruppövning_InternationalFoodAB.Classes
             }
         }
 
-        //listar igenom alla
+        //Listar igenom alla filerna
         public List<Recept> Read()
-        {
-
+        { 
             try
             {
                 string jsonReceptFilePath = FileDirectory.GetJsonReceptPath();
 
                 List<Recept> personList = new List<Recept>();
-                //AllRecepts = new List<Recept>();
                 using (StreamReader sr = new StreamReader(jsonReceptFilePath))
                 {
                     string line;
@@ -54,7 +45,6 @@ namespace Gruppövning_InternationalFoodAB.Classes
                     {
                         Recept recept = JsonSerializer.Deserialize<Recept>(line);
                         personList.Add(recept);
-                        //AllRecepts.Add(recept);
                     }
                 }
 
@@ -82,9 +72,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
         }
 
 
-        //Uppdaterar
-
-        // Viv Try 
+        //Uppdaterar recepten i listan
         public void Update(Guid receptId, Recept updatedRecept)
         {
             try
@@ -94,12 +82,12 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
                 if (receptToUpdate != null)
                 {
-                    // Update the fields
+                    //Uppdaterar fältet
                     receptToUpdate.Name = updatedRecept.Name;
                     receptToUpdate.Description = updatedRecept.Description;
                     receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
 
-                    WriteToFile(receptList);  // Save the updated list to the file
+                    WriteToFile(receptList);  //Sparar den uppdaterade listan till filen
                     MessageBox.Show("Receptet har uppdaterats.");
                 }
                 else
@@ -113,34 +101,12 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 MessageBox.Show("Ett fel inträffade när receptet skulle uppdateras.");
             }
         }
-        //public void Update(Guid receptId, Recept updatedRecept)
-        //{
-        //    try
-        //    {
-        //        List<Recept> receptList = Read();
-        //        var receptToUpdate = receptList.FirstOrDefault(recept => recept.Id == receptId);
-        //        receptToUpdate.Name = updatedRecept.Name;
-        //        receptToUpdate.Description = updatedRecept.Description;
-        //        receptToUpdate.TypeOfRecept = updatedRecept.TypeOfRecept;
-
-        //        WriteToFile(receptList);
-        //        MessageBox.Show("Receptet har uppdaterats.");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogError(ex);
-        //        MessageBox.Show("Ett fel inträffade när receptet skulle uppdateras.");
-        //    }
-        //}
-
-
-        //söker
+        //Sökresultaten
         public List<Recept> ShowSearchResults(string keyWord, bool name, bool type)
         {
-            // We take in a key word from the user and see if any recepts contain it. 
-            // We then return a list to be displayed. 
-
-            //Läsa in recept från filen  för att läsa in våra recept till listan AllRecepts
+            //Vi läser in sökordet som användaren skriver in och ser om något av recepten innehåller det
+            //Sen returnenar vi listan för att visa innehållet
+            //Läser sen in recept från filen för att läsa in våra de till listan AllRecepts
             var recepts = Read();
             var searchResults = new List<Recept>();
 
@@ -166,10 +132,7 @@ namespace Gruppövning_InternationalFoodAB.Classes
             }
         }
 
-        //Delete
-
-        //Viv Try
-
+        //Ta bort ett recept
         public void Delete(Guid receptId)
         {
             try
@@ -179,8 +142,8 @@ namespace Gruppövning_InternationalFoodAB.Classes
 
                 if (receptToRemove != null)
                 {
-                    receptList.Remove(receptToRemove);  // Remove the recipe
-                    WriteToFile(receptList);  // Save the updated list to the file
+                    receptList.Remove(receptToRemove);  //Tar bort receptet
+                    WriteToFile(receptList);  //Spara den uppdaterade listan till filen
                     MessageBox.Show("Receptet har tagits bort.");
                 }
                 else
@@ -194,23 +157,6 @@ namespace Gruppövning_InternationalFoodAB.Classes
                 MessageBox.Show("Ett fel inträffade när receptet skulle tas bort.");
             }
         }
-
-        //public void Delete(Guid receptId)
-        //{
-        //    try
-        //    {
-        //        List<Recept> receptList = Read();
-        //        int removedCount = receptList.RemoveAll(recept => recept.Id == receptId);
-        //        WriteToFile(receptList);
-        //        MessageBox.Show("Receptet har tagits bort.");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogError(ex);
-        //        MessageBox.Show("Ett fel inträffade när receptet skulle tas bort.");
-        //    }
-        //}
-
         public void WriteToFile(List <Recept>receptList)
         {
             string filePath = FileDirectory.GetJsonReceptPath();
