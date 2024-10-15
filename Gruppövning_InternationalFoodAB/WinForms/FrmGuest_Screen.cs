@@ -51,6 +51,7 @@ namespace Gruppövning_InternationalFoodAB.WinForms
         {
             if (selectedRecepie != null)
             {
+                txtGuestSearch.Clear();
                 FrmGuest_ShowRecept formShowRecept = new FrmGuest_ShowRecept(selectedRecepie);
                 formShowRecept.Show();
             }
